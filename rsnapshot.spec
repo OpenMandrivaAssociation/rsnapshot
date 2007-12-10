@@ -13,6 +13,7 @@ Group:          Archiving/Backup
 Url:            http://www.rsnapshot.org
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:      noarch
+BuildRequires:	rsync
 Requires:	rsync
 
 %description
