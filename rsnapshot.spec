@@ -44,7 +44,6 @@ install -m 600 rsnapshot.conf.default $RPM_BUILD_ROOT%{_sysconfdir}/rsnapshot.co
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-rm -rf $RPM_BUILD_DIR/%{name}-%{version}/
 
 %files
 %defattr(-,root,root)
