@@ -1,6 +1,6 @@
 %define name rsnapshot
 %define version 1.3.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:        Local and remote filesystem snapshot utility
 Name:           %{name}
@@ -14,7 +14,7 @@ Url:            http://www.rsnapshot.org
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:      noarch
 BuildRequires:	rsync
-Requires:	rsync
+Requires:	rsync openssh-clients
 
 %description
 This is a remote backup program that uses rsync to take backup snapshots of
@@ -41,6 +41,8 @@ install -m 644 rsnapshot.1 $RPM_BUILD_ROOT/%{_mandir}/man1/
 install -d $RPM_BUILD_ROOT/%{_sysconfdir}
 install -m 644 rsnapshot.conf.default $RPM_BUILD_ROOT%{_sysconfdir}/rsnapshot.conf.default
 install -m 600 rsnapshot.conf.default $RPM_BUILD_ROOT%{_sysconfdir}/rsnapshot.conf
+
+perl -pi -e  's/^#// if /^#cmd_ssh/; s!(snapshot_root\s*)/.snapshots/!\1/home/.snapshots/!; s!^#(link_dest\s*)0!${1}1!' $RPM_BUILD_ROOT%{_sysconfdir}/rsnapshot.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
