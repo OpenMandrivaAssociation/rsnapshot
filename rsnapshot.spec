@@ -1,6 +1,6 @@
 %define name rsnapshot
 %define version 1.3.0
-%define release %mkrel 4
+%define release %mkrel 5
 
 Summary:        Local and remote filesystem snapshot utility
 Name:           %{name}
@@ -8,6 +8,7 @@ Version:        %{version}
 Release:        %{release}
 Source0:        %{name}-%{version}.tar.gz
 Patch0:		%{name}.patch
+Patch1:		rsnapshot-ionice.patch
 License:        GPL
 Group:          Archiving/Backup
 Url:            http://www.rsnapshot.org
@@ -24,6 +25,7 @@ For more details see http://www.rsnapshot.org/.
 %prep
 %setup -q -n %{name}-%{version}
 %patch0 -p0
+%patch1 -p0
 
 %build
 %configure					
