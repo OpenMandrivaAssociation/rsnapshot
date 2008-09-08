@@ -1,7 +1,7 @@
 Summary:	Local and remote filesystem snapshot utility
 Name:		rsnapshot
-Version:	1.3.0
-Release:	%mkrel 6
+Version:	1.3.1
+Release:	%mkrel 1
 License:	GPL
 Group:		Archiving/Backup
 URL:		http://www.rsnapshot.org
@@ -24,7 +24,7 @@ For more details see http://www.rsnapshot.org/.
 %patch1 -p0
 
 %build
-%configure \
+%configure2_5x \
     --sysconfdir=%{buildroot}%{_sysconfdir}
 
 %make
