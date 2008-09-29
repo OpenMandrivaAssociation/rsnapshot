@@ -1,7 +1,7 @@
 Summary:	Local and remote filesystem snapshot utility
 Name:		rsnapshot
 Version:	1.3.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		Archiving/Backup
 URL:		http://www.rsnapshot.org
@@ -44,7 +44,7 @@ install -d %{buildroot}%{_sysconfdir}
 install -m 644 rsnapshot.conf.default %{buildroot}%{_sysconfdir}/rsnapshot.conf.default
 install -m 600 rsnapshot.conf.default %{buildroot}%{_sysconfdir}/rsnapshot.conf
 
-perl -pi -e  's/^#// if /^#cmd_ssh/; s!/path/to/ssh!/usr/bin/ssh!; s!(snapshot_root\s*)/.snapshots/!\1/home/.snapshots/!; s!^#(link_dest\s*)0!${1}1!' %{buildroot}%{_sysconfdir}/rsnapshot.conf
+perl -pi -e  's/^#// if /^#cmd_ssh/; s!/path/to/ssh!/usr/bin/ssh!; s!(snapshot_root\s*)/.snapshots/!#\1/home/.snapshots/!; s!^#(link_dest\s*)0!${1}1!' %{buildroot}%{_sysconfdir}/rsnapshot.conf
 
 perl -pi -e "s|%{buildroot}||g" %{buildroot}%{_bindir}/rsnapshot
 
