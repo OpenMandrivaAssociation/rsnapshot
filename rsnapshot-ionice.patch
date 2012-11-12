@@ -1,0 +1,13 @@
+diff -p -up ./rsnapshot-program.pl.tv ./rsnapshot-program.pl
+--- ./rsnapshot-program.pl.tv	2008-06-24 15:59:34.000000000 +0200
++++ ./rsnapshot-program.pl	2008-06-24 16:00:07.000000000 +0200
+@@ -46,6 +46,9 @@ use POSIX qw(locale_h);	# setlocale()
+ use Fcntl;				# sysopen()
+ use IO::File;			# recursive open in parse_config_file
+ 
++system('ionice', '-n', '7', '-p', $$);
++system('renice', '20', $$);
++
+ ########################################
+ ###           CPAN MODULES           ###
+ ########################################

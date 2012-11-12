@@ -1,0 +1,12 @@
+diff -u rsnapshot-program.pl.orig rsnapshot-program.pl
+--- rsnapshot-program.pl.orig	2010-01-13 13:01:26.000000000 +0100
++++ rsnapshot-program.pl	2010-01-13 13:08:20.000000000 +0100
+@@ -1110,7 +1110,7 @@
+ 					# attempt to run multiple invocations of rsync instead.
+ 					#
+ 					$exclude_path = $config_vars{'snapshot_root'};
+-					$exclude_path =~ s/^$src//;
++					#$exclude_path =~ s/^$src//;
+ 					
+ 					# pass it to rsync on this backup point only
+ 					$hash{'opts'}{'extra_rsync_long_args'} .= sprintf(' --exclude=%s', $exclude_path);
