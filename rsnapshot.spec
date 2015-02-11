@@ -1,7 +1,7 @@
 Summary:	Local and remote filesystem snapshot utility
 Name:		rsnapshot
 Version:	1.3.1
-Release:	17
+Release:	18
 License:	GPLv2
 Group:		Archiving/Backup
 Url:		http://www.rsnapshot.org
@@ -9,6 +9,7 @@ Source0:	%{name}-%{version}.tar.gz
 Patch0:		%{name}.patch
 Patch1:		rsnapshot-ionice.patch
 Patch2:		rsnapshot-exclude-snapshot_root.patch
+Patch3:		pod2man.patch
 BuildArch:	noarch
 BuildRequires:	rsync openssh-clients
 Requires:	rsync openssh-clients
@@ -23,9 +24,10 @@ For more details see http://www.rsnapshot.org/.
 %patch0 -p0
 %patch1 -p0
 %patch2 -p0
+%patch3 -p1
 
 %build
-%configure2_5x \
+%configure \
 	--sysconfdir=%{buildroot}%{_sysconfdir}
 
 %make
