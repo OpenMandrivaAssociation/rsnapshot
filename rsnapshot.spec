@@ -1,7 +1,7 @@
 Summary:	Local and remote filesystem snapshot utility
 Name:		rsnapshot
 Version:	1.3.1
-Release:	18
+Release:	19
 License:	GPLv2
 Group:		Archiving/Backup
 Url:		http://www.rsnapshot.org
