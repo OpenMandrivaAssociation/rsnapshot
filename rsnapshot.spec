@@ -4,7 +4,7 @@ Version:	1.3.1
 Release:	24
 License:	GPLv2
 Group:		Archiving/Backup
-Url:		http://www.rsnapshot.org
+Url:		https://www.rsnapshot.org
 Source0:	%{name}-%{version}.tar.gz
 Patch0:		%{name}.patch
 Patch1:		rsnapshot-ionice.patch
