@@ -11,6 +11,11 @@ Patch1:		rsnapshot-ionice.patch
 Patch2:		rsnapshot-exclude-snapshot_root.patch
 Patch3:		pod2man.patch
 BuildArch:	noarch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	rsync openssh-clients
 Requires:	rsync openssh-clients
 
