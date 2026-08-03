@@ -1,13 +1,13 @@
-diff -p -up ./rsnapshot-program.pl.tv ./rsnapshot-program.pl
---- ./rsnapshot-program.pl.tv	2008-06-24 15:59:34.000000000 +0200
-+++ ./rsnapshot-program.pl	2008-06-24 16:00:07.000000000 +0200
-@@ -46,6 +46,9 @@ use POSIX qw(locale_h);	# setlocale()
- use Fcntl;				# sysopen()
- use IO::File;			# recursive open in parse_config_file
+--- rsnapshot-1.5.1/rsnapshot-program.pl	2025-01-27 03:00:25.000000000 +0100
++++ rsnapshot-1.5.1/rsnapshot-program.pl	2026-08-03 03:16:58.319499930 +0200
+@@ -47,6 +47,10 @@
+ use IPC::Open3 qw(open3);      # open rsync with error output
+ use IO::Handle;                # handle autoflush for rsync-output
  
++# OpenMandriva: lower I/O and CPU priority for backup process
 +system('ionice', '-n', '7', '-p', $$);
 +system('renice', '20', $$);
 +
  ########################################
- ###           CPAN MODULES           ###
+ ###     DECLARE GLOBAL VARIABLES     ###
  ########################################

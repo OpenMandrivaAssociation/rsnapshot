@@ -1,12 +1,12 @@
-diff -u rsnapshot-program.pl.orig rsnapshot-program.pl
---- rsnapshot-program.pl.orig	2010-01-13 13:01:26.000000000 +0100
-+++ rsnapshot-program.pl	2010-01-13 13:08:20.000000000 +0100
-@@ -1110,7 +1110,7 @@
- 					# attempt to run multiple invocations of rsync instead.
- 					#
- 					$exclude_path = $config_vars{'snapshot_root'};
--					$exclude_path =~ s/^$src//;
-+					#$exclude_path =~ s/^$src//;
- 					
- 					# pass it to rsync on this backup point only
- 					$hash{'opts'}{'extra_rsync_long_args'} .= sprintf(' --exclude=%s', $exclude_path);
+--- rsnapshot-1.5.1/rsnapshot-program.pl	2025-01-27 03:00:25.000000000 +0100
++++ rsnapshot-1.5.1/rsnapshot-program.pl	2026-08-03 03:16:58.319702673 +0200
+@@ -1114,6 +1114,9 @@
+ 			#
+ 			# This should work in any version of rsync since 2.6.4 except for 2.6.7, due to a bug:
+ 			# http://lists.samba.org/archive/rsync/2006-March/014953.html
++			#
++			# OpenMandriva: always exclude using the full snapshot_root path (do not strip $src).
++			# Older rsnapshot stripped the backup source prefix, which could exclude the wrong path.
+ 			if ((is_real_local_abs_path("$src")) && ($config_vars{'snapshot_root'} =~ m/^$src/)) {
+ 				$hash{'opts'}{'extra_rsync_long_args'} .= sprintf(' --filter=-/_%s', $config_vars{'snapshot_root'});
+ 			}

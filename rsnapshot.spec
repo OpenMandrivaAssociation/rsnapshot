@@ -1,7 +1,7 @@
 Summary:	Local and remote filesystem snapshot utility
 Name:		rsnapshot
-Version:	1.3.1
-Release:	24
+Version:	1.5.1
+Release:	1
 License:	GPLv2
 Group:		Archiving/Backup
 Url:		https://www.rsnapshot.org
@@ -26,10 +26,10 @@ For more details see http://www.rsnapshot.org/.
 
 %prep
 %setup -q
-%patch0 -p0
-%patch1 -p0
-%patch2 -p0
-%patch3 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
+%patch -P3 -p1
 
 %build
 %configure \
